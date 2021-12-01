@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-content>
+        <div class="header">
+            <h2>LOGIN</h2>
+
+        </div>
+        <form (ngSubmit)="onLogin()" name="loginform" [formGroup]="loginForm">
+            <div class="email-input">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName = "email" matInput required />
+                    <mat-error *ngIf="loginForm.get('email').errors?.required">
+                        Required email address
+                    </mat-error>
+
+                </mat-form-field>
+
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>
+
