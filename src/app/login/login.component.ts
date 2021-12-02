@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +8,8 @@ import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm :  FormGroup;
+  loginForm :  FormGroup = new FormGroup({});
+
   constructor() { }
 
   ngOnInit(){
@@ -21,8 +21,16 @@ export class LoginComponent implements OnInit {
     );
   }
 
-}
+  onLogin(){
 
-onLogin(){
+  }
+
+  getControl(formGroup: any, formControlIdentifier: any){
+    return formGroup.get(formControlIdentifier);
+  }
+
+  getControlErrors(formControl: any): any{
+    return Object.keys(formControl?.errors || {});
+  }
 
 }
