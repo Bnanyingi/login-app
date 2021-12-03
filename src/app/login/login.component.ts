@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,8 +9,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm :  FormGroup = new FormGroup({});
-
+  loginForm : FormGroup = new FormGroup({});
+  hide = false;
   constructor() { }
 
   ngOnInit(){
@@ -19,12 +20,8 @@ export class LoginComponent implements OnInit {
         password : new FormControl('',[Validators.required, Validators.minLength(6)])
       }
     );
+      
   }
-
-  onLogin(){
-
-  }
-
   getControl(formGroup: any, formControlIdentifier: any){
     return formGroup.get(formControlIdentifier);
   }
@@ -32,5 +29,9 @@ export class LoginComponent implements OnInit {
   getControlErrors(formControl: any): any{
     return Object.keys(formControl?.errors || {});
   }
-
+  onLogin(){
+    
+  }
 }
+
+
